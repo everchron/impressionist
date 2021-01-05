@@ -47,13 +47,10 @@ module Impressionist
 
       end
 
-      def counter_caching?
-        if impressionable_class.respond_to?(:impressionist_counter_caching?)
-          impressionable_class.impressionist_counter_caching?
-        else
-          false
-        end
-      end
+    def counter_caching?
+      impressionable_class.
+          impressionist_counter_caching? if impressionable_class.respond_to? :impressionist_counter_caching?
+    end
 
 
       # Returns false, as it is only handling one exeception
